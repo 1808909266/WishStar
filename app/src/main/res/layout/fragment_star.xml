@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgyellow">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/starfrag_vp"
+        android:layout_width="match_parent"
+        android:layout_height="220dp" />
+    <LinearLayout
+        android:id="@+id/starfrag_layout"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:layout_alignBottom="@+id/starfrag_vp"/>
+
+    <LinearLayout
+        android:id="@+id/starfrag_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:layout_below="@+id/starfrag_layout"
+        android:layout_marginTop="20dp">
+
+        <!-- 左边的图标和按钮 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:src="@mipmap/left_icon" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="许愿池"
+                android:background="@drawable/dock"
+                android:id="@+id/starfrag_btn_wish"/>
+        </LinearLayout>
+
+        <!-- 右边的图标和按钮 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:src="@mipmap/right_icon" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="玩一玩"
+                android:background="@drawable/dock"
+                android:id="@+id/starfrag_btn_game"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/starfrag_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/starfrag_add"
+        android:layout_marginTop="30dp"
+        android:numColumns="4"/>
+
+</RelativeLayout>
