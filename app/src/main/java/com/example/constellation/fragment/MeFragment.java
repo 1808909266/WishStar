@@ -1,7 +1,10 @@
 package com.example.constellation.fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -17,6 +20,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.constellation.R;
+import com.example.constellation.activity.AboutActivity;
+import com.example.constellation.activity.ChangePSWActivity;
+import com.example.constellation.activity.FunctionActivity;
+import com.example.constellation.activity.HelperActivity;
+import com.example.constellation.activity.LoginActivity;
 import com.example.constellation.adapter.LuckBaseAdapter;
 import com.example.constellation.bean.StarBean;
 import com.example.constellation.utils.AssetsUtils;
@@ -61,7 +69,70 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         Bitmap bitmap = imgMap.get(logoname);
         iconIv.setImageBitmap(bitmap);
         nameTv.setText(name);
+        //退出登录
+        view.findViewById(R.id.exit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(getContext())
+                        .setTitle("温馨提示")
+                        .setMessage("确定要退出登录吗？")
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                getActivity().finish();
+                                Intent intent =new Intent(getActivity(), LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .show();
+            }
+        });
+
+        view.findViewById(R.id.function).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(getActivity(),FunctionActivity.class));
+            }
+        });
+
+        view.findViewById(R.id.about).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),AboutActivity.class));
+            }
+        });
+
+        view.findViewById(R.id.helper).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),HelperActivity.class));
+            }
+        });
+        view.findViewById(R.id.updatePWD).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getActivity(), ChangePSWActivity.class);
+                startActivityForResult(intent,1000);
+            }
+        });
+
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==1000){
+            getActivity().finish();
+            Intent intent =new Intent(getActivity(),LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -115,4 +186,5 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         editor.putString("logoname",logoname);
         editor.commit();
     }
+
 }

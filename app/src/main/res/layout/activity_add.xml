@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background2"
     tools:context=".activity.AddActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="@mipmap/leftback"
+        android:background="#FFA500"
+        app:titleTextColor="#F5F5DC"
         app:title="新的愿望"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -38,6 +41,10 @@
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
+            android:background="#FFA500"
+            android:textColor="#F5F5DC"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:text="添加"
             android:onClick="add"
             android:layout_height="match_parent">

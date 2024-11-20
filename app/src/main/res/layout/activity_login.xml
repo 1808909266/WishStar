@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.LoginActivity">
+    tools:context=".activity.LoginActivity"
+    android:background="@drawable/background1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,11 +14,16 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/login"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="#343965"
@@ -64,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
+
             android:hint="密码"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
@@ -84,7 +91,7 @@
                 android:text="登录"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:background="#585CE5"
+                android:background="#FFA500"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 

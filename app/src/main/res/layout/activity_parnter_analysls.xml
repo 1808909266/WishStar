@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgyellow"
+    android:background="@drawable/background2"
     android:orientation="vertical">
 
     <include layout="@layout/title_layout" />
@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             app:civ_border_width="2dp"
-            app:civ_border_color="@color/lightpink"
+            app:civ_border_color="#FF6347"
             />
     </LinearLayout>
     <LinearLayout
@@ -55,17 +55,18 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginRight="50dp"/>
+
         <TextView
             android:id="@+id/parnteranalysls_tv_woman"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
             android:layout_weight="1"
-            android:textColor="@color/lightpink"
-            android:text="白羊座"
             android:gravity="left"
+            android:text="白羊座"
+            android:textColor="#FF6347"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="50dp"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 

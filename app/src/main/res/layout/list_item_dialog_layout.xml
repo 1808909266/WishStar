@@ -5,15 +5,26 @@
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:id="@+id/delete"
+        android:background="#FFA500"
+        android:textColor="#F5F5DC"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:text="删除"
-        style="@style/MyTextStyle"
-        />
-
+        android:gravity="center"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FF000000" />
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:id="@+id/edit"
+        android:background="#FFA500"
+        android:textColor="#F5F5DC"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:text="编辑"
-        style="@style/MyTextStyle"
-        />
+        android:gravity="center"/>
 </LinearLayout>

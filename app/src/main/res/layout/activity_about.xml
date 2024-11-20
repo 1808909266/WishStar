@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    android:orientation="vertical"
     tools:context=".activity.AboutActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@mipmap/leftback"
+        android:background="#FFA500"
+        app:titleTextColor="#F5F5DC"
+        app:title="关于应用"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:text="        星愿奇旅是一款集星座信息查询、配对分析、运势预测于一体的趣味应用。\n
+       用户可轻松查阅各星座详情，探索星座间的奇妙配对，并获取个性化的每日运势。\n
+       此外，App还提供趣味拼图游戏与许愿池备忘录，让用户在享受娱乐的同时，记录生活点滴，寄托美好愿望。\n
+       安全便捷的注册登录系统，保护用户隐私，打造专属星座之旅。"
+            android:textSize="20sp"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -47,16 +47,23 @@ public class RegisterActivity extends AppCompatActivity {
                 if(TextUtils.isEmpty(username)||TextUtils.isEmpty(password)){
                     Toast.makeText(RegisterActivity.this,"请输入用户名或密码",Toast.LENGTH_SHORT).show();
                 }else{
-                    int row = UserDbHelper.getInstance(RegisterActivity.this).register(username, password, "这个家伙很懒,什么都没有留下~");
-                    if(row>0){
-                        Toast.makeText(RegisterActivity.this,"注册成功，请登录",Toast.LENGTH_SHORT).show();
-                        finish();
-                    }else {
-                        Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT).show();
+                    // 检查用户名是否已存在
+                    boolean isUsernameExists = UserDbHelper.getInstance(RegisterActivity.this).isUsernameExists(username);
+                    if (isUsernameExists) {
+                        Toast.makeText(RegisterActivity.this, "用户名已存在，请选择其他用户名", Toast.LENGTH_SHORT).show();
+                    } else {
+                        int row = UserDbHelper.getInstance(RegisterActivity.this).register(username, password);
+                        if (row > 0) {
+                            Toast.makeText(RegisterActivity.this, "注册成功，请登录", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
         });
+
 
     }
 }
