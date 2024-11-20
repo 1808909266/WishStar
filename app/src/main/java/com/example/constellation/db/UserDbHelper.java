@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.example.constellation.enbity.Userinfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDbHelper extends SQLiteOpenHelper {
@@ -34,8 +35,8 @@ public class UserDbHelper extends SQLiteOpenHelper {
         //创建user_table表
         db.execSQL("create table user_table(user_id integer primary key autoincrement," +
                 "username text," +       //用户名
-                "password text," +      //密码
-                "nickname" +            //昵称
+                "password text" +      //密码
+
                 ")");
     }
     @Override
@@ -58,8 +59,8 @@ public class UserDbHelper extends SQLiteOpenHelper {
             int user_id = cursor.getInt(cursor.getColumnIndex("user_id"));
             String name = cursor.getString(cursor.getColumnIndex("username"));
             String password = cursor.getString(cursor.getColumnIndex("password"));
-            String nickname = cursor.getString(cursor.getColumnIndex("nickname"));
-            userinfo = new Userinfo(user_id, name, password, nickname);
+
+            userinfo = new Userinfo(user_id, name, password);
         }
         cursor.close();
         db.close();
@@ -70,14 +71,14 @@ public class UserDbHelper extends SQLiteOpenHelper {
  * 注册
  */
 
-public int register(String username, String password, String nickname) {
+public int register(String username, String password) {
     //获取SQLiteDatabase实例
     SQLiteDatabase db = getWritableDatabase();
     ContentValues values = new ContentValues();
     //填充占位符
     values.put("username", username);
     values.put("password", password);
-    values.put("nickname", nickname);
+
     String nullColumnHack ="values(null,?,?,?)";
     //执行
     int insert = (int) db.insert("user_table", nullColumnHack, values);
@@ -103,5 +104,25 @@ public int register(String username, String password, String nickname) {
     }
 
 
+    public boolean isUsernameExists(String username) {
+
+        // 打开可读数据库连接（由SQLiteOpenHelper管理）
+        SQLiteDatabase db = getReadableDatabase();
+
+        // 编写SQL查询语句，使用EXISTS来优化性能
+        String query = "SELECT EXISTS(SELECT 1 FROM user_table WHERE username = ?)";
+
+        // 执行查询并获取结果（这将返回一个包含单个值的Cursor）
+        Cursor cursor = db.rawQuery(query, new String[]{username});
+
+        // 移动到结果集的第一行（如果存在的话），并获取EXISTS查询的结果
+        boolean exists = cursor.moveToFirst() && cursor.getInt(0) > 0;
+
+        // 关闭Cursor
+        cursor.close();
+
+        // 返回结果
+        return exists;
+    }
 }
 

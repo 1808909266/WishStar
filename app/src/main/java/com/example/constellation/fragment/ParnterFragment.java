@@ -29,7 +29,7 @@ public class ParnterFragment extends Fragment implements View.OnClickListener, A
 
     private ImageView manIv,womanIv;
     private Spinner manSp,womanSp;
-    private Button prizeBtn,analyslsBtn;
+    private Button analyslsBtn;
     private List<StarBean.StarinfoBean> infoList;
     private List<String>nameList;   //存放星座名称的集合
     private Map<String, Bitmap> logoImgMap;
@@ -72,10 +72,9 @@ public class ParnterFragment extends Fragment implements View.OnClickListener, A
         womanIv = view.findViewById(R.id.parnterfrag_iv_woman);
         manSp = view.findViewById(R.id.parnterfrag_sp_man);
         womanSp = view.findViewById(R.id.parnterfrag_sp_woman);
-        prizeBtn = view.findViewById(R.id.parnterfrag_btn_prize);
         analyslsBtn = view.findViewById(R.id.parnterfrag_btn_analysls);
 //        设置按钮得监听器
-        prizeBtn.setOnClickListener(this);
+
         analyslsBtn.setOnClickListener(this);
         manSp.setOnItemSelectedListener(this);
         womanSp.setOnItemSelectedListener(this);
@@ -84,8 +83,7 @@ public class ParnterFragment extends Fragment implements View.OnClickListener, A
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.parnterfrag_btn_prize:
-                break;
+
             case R.id.parnterfrag_btn_analysls:
 //                获取spinner选中的位置
                 int manSelPos = manSp.getSelectedItemPosition();

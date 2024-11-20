@@ -13,10 +13,22 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.EditActivity"
-            android:label="编辑愿望"
-            android:parentActivityName=".activity.WishActivity"
+            android:name=".activity.HelperActivity"
             android:exported="false" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FunctionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ChangePSWActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditActivity"
+            android:exported="false"
+            android:label="编辑愿望"
+            android:parentActivityName=".activity.WishActivity" />
         <activity
             android:name=".activity.AddActivity"
             android:exported="false"

@@ -7,7 +7,7 @@
     android:paddingRight="30dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    android:background="@color/bgyellow">
+    android:background="@color/white">
     <TextView
         android:id="@+id/item_star_tv_title"
         android:layout_width="0dp"

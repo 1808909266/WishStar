@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                             edit.putString("password",password);
                             edit.putBoolean("is_login",is_login);
                             edit.commit();
+                            Userinfo.setUserinfo(userinfo);
 
                             //登录成功
                             startActivity(new Intent(LoginActivity.this,MainActivity.class));

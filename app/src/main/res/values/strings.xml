@@ -12,7 +12,7 @@
     <string name="title_activity_parnter_analysls">ParnterAnalyslsActivity</string>
     <string name="about_app">关于应用</string>
     <string name="function">功能介绍</string>
-    <string name="update">版本更新</string>
+    <string name="change">修改密码</string>
     <string name="feedback">使用帮助</string>
 
 </resources>

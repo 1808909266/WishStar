@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/bgyellow">
+    android:background="@drawable/background3">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/mefrag_iv"
@@ -28,6 +28,7 @@
         android:layout_marginTop="10dp"/>
 
     <LinearLayout
+        android:id="@+id/updatePWD"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
@@ -35,65 +36,55 @@
             android:layout_width="4dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
-            android:background="@color/colorAccent"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="10dp" />
-        <TextView
-            android:id="@+id/mefrag_tv_about"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/update"
-            android:gravity="center|left"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/white"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-        <View
-            android:layout_width="4dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:background="@color/colorAccent"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="10dp" />
-        <TextView
-            android:id="@+id/mefrag_tv_function"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/function"
-            android:gravity="center|left"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/white"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-        <View
-            android:layout_width="4dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:background="@color/colorAccent"
+            android:background="#FFA500"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="10dp" />
 
         <TextView
-            android:id="@+id/mefrag_tv_update"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center|left"
-            android:text="@string/about_app"
+            android:text="@string/change"
             android:textSize="20sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_marginLeft="230dp"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/function"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="4dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:background="#FFA500"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/function"
+            android:gravity="center|left"
+            android:textSize="20sp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_marginLeft="230dp"
+            android:layout_gravity="center"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -103,34 +94,77 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:id="@+id/about"
         android:orientation="horizontal">
         <View
             android:layout_width="4dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
-            android:background="@color/colorAccent"
+            android:background="#FFA500"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="10dp" />
+
         <TextView
-            android:id="@+id/mefrag_tv_feedback"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/feedback"
             android:gravity="center|left"
-            android:textSize="20sp"/>
+            android:text="@string/about_app"
+            android:textSize="20sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_marginLeft="230dp"
+            android:layout_gravity="center"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/white"
         />
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="退出登录"
-        android:textSize="20sp"
-        android:gravity="center"
+        android:id="@+id/helper"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="4dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:background="#FFA500"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/feedback"
+            android:gravity="center|left"
+            android:textSize="20sp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_marginLeft="230dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"
+        />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:textStyle="bold"/>
+        android:background="@drawable/dock"
+        android:gravity="center"
+        android:text="退出登录"
+        android:id="@+id/exit"
+        android:textColor="#F5F5DC"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

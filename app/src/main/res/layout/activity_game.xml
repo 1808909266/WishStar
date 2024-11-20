@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.GameActivity"
-    android:background="@color/bgyellow">
+    android:background="@drawable/background2">
     <include layout="@layout/title_layout" />
     <TextView
         android:id="@+id/pt_tv_time"
@@ -112,6 +112,10 @@
         android:onClick="restart"
         android:layout_gravity="center"
         android:text="重新开始"
+        android:textColor="#F5F5DC"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="@drawable/dock"
         android:layout_marginTop="5dp"/>
 
     <ImageView
