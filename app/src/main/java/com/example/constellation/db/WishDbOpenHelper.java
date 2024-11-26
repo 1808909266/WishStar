@@ -47,9 +47,9 @@ public class WishDbOpenHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_NAME_WISH, null, null, null, null, null, null);
         if (cursor != null) {
             while (cursor.moveToNext()) {
-                String id = cursor.getString(cursor.getColumnIndex("id"));
+                String id = cursor.getString(cursor.getColumnIndexOrThrow("id"));
 
-                String wishcontent = cursor.getString(cursor.getColumnIndex("wishcontent"));
+                String wishcontent = cursor.getString(cursor.getColumnIndexOrThrow("wishcontent"));
 
 
                 Wish wish = new Wish();
@@ -68,8 +68,6 @@ public class WishDbOpenHelper extends SQLiteOpenHelper {
     }
     public int deleteFromDbById(String id) {
         SQLiteDatabase db = getWritableDatabase();
-//        return db.delete(TABLE_NAME_NOTE, "id = ?", new String[]{id});
-//        return db.delete(TABLE_NAME_NOTE, "id is ?", new String[]{id});
         return db.delete(TABLE_NAME_WISH, "id like ?", new String[]{id});
     }
 

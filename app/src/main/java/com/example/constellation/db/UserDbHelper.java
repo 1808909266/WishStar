@@ -52,7 +52,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
         //获取SQLiteDatabase实例
         SQLiteDatabase db = getReadableDatabase();
         Userinfo userinfo = null;
-        String sql ="select user_id,username,password,nickname  from user_table where username=?";
+        String sql ="select user_id,username,password  from user_table where username=?";
         String[] selectionArgs = {username};
         Cursor cursor = db.rawQuery(sql, selectionArgs);
         if (cursor.moveToNext()) {

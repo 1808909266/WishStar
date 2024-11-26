@@ -21,5 +21,12 @@ public class Wish implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
+    @Override
+    public String toString() {
+        return "Wish{" +
+                " wishcontent='" + wishcontent + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }
 

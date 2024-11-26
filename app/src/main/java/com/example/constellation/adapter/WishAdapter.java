@@ -48,18 +48,6 @@ public class WishAdapter extends RecyclerView.Adapter<WishAdapter.WishViewHolder
     public void onBindViewHolder(@NonNull WishViewHolder holder, int position) {
         Wish wish = mBeanList.get(position);
         holder.wishcontent.setText(wish.getWishcontent());
-        /**
-         *  holder.rlContainer.setOnClickListener(new View.OnClickListener() {
-         *             @Override
-         *             public void onClick(View v) {
-         *
-         *                 Intent intent = new Intent(mContext, EditActivity.class);
-         *                 intent.putExtra("wish", wish);
-         *                 mContext.startActivity(intent);
-         *             }
-         *         });
-         */
-
 
         holder.rlContainer.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -74,7 +62,7 @@ public class WishAdapter extends RecyclerView.Adapter<WishAdapter.WishViewHolder
                     public void onClick(View v) {
                         int row = mWishDbOpenHelper.deleteFromDbById(wish.getId());
                         if (row > 0) {
-                            removeData(position);
+                            removeData(holder.getAdapterPosition());
 
                             ToastUtil.toastShort(mContext,"删除成功！");
                         }else {
