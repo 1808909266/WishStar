@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,20 +17,24 @@ import com.example.constellation.enbity.Userinfo;
 public class ChangePSWActivity extends AppCompatActivity {
     private EditText et_new_password;
     private EditText et_confirm_password;
-
-
-
-
+    private Button button;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pswactivity);
+        initView();
+        setListener();
 
+    }
+    private void initView() {
         et_new_password =findViewById(R.id.et_new_password);
         et_confirm_password =findViewById(R.id.et_confirm_password);
-
-
-        findViewById(R.id.btn_update_password).setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.btn_update_password);
+        toolbar = findViewById(R.id.toolbar);
+    }
+    private void setListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String new_pwd =et_new_password.getText().toString();
@@ -39,7 +44,6 @@ public class ChangePSWActivity extends AppCompatActivity {
                 }else if(!new_pwd.equals(confirm_pwd)){
                     Toast.makeText(ChangePSWActivity.this, "密码不一致", Toast.LENGTH_SHORT).show();
                 }else {
-
                     Userinfo userinfo =Userinfo.getUserinfo();
                     if (null!=userinfo){
                         int row = UserDbHelper.getInstance(ChangePSWActivity.this).updatePwd(userinfo.getUsername(), new_pwd);
@@ -55,15 +59,12 @@ public class ChangePSWActivity extends AppCompatActivity {
                 }
             }
         });
-
-        findViewById(R.id.toolbar).setOnClickListener(new View.OnClickListener() {
+        toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
-
     }
 
 

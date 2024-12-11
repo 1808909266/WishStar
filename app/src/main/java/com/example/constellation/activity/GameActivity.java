@@ -22,28 +22,24 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton ib00, ib01, ib02, ib10, ib11, ib12, ib20, ib21, ib22;
     private Button restartBtn;
     private TextView timeTv;
-
-
     //    每行的图片个数
     private int imageX = 3;
     private int imageY = 3;  //每列的图片的个数
-
     //    图片的总数目
     private int imgCount = imageX * imageY;
     //    空白区域的位置
     private int blankSwap = imgCount - 1;
     //    初始化空白区域的按钮id
     private int blankImgid = R.id.pt_ib_02x02;
-
     //    定义计数时间的变量
     int time = 0;
     //    存放碎片的数组，便于进行统一的管理
-    private int[] image = {R.mipmap.img_cat_00x00, R.mipmap.img_cat_00x01, R.mipmap.img_cat_00x02,
-            R.mipmap.img_cat_01x00, R.mipmap.img_cat_01x01, R.mipmap.img_cat_01x02,
-            R.mipmap.img_cat_02x00, R.mipmap.img_cat_02x01, R.mipmap.img_cat_02x02};
+    private int[] image = {R.mipmap.img_aries_00x00, R.mipmap.img_aries_00x01, R.mipmap.img_aries_00x02,
+            R.mipmap.img_aries_01x00, R.mipmap.img_aries_01x01, R.mipmap.img_aries_01x02,
+            R.mipmap.img_aries_02x00, R.mipmap.img_aries_02x01, R.mipmap.img_aries_02x02};
     //  声明一个图片数组的下标数组，随机排列这个数组
     private int[] imageIndex = new int[image.length];
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
@@ -54,18 +50,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         initView();
-        //        打乱碎片的函数
+        //打乱碎片的函数
         disruptRandom();
         handler.sendEmptyMessageDelayed(1, 1000);
     }
-
-
     //  随机打乱数组当中元素，以不规则的形式进行图片显示
     private void disruptRandom() {
         for (int i = 0; i < imageIndex.length; i++) {
@@ -98,14 +91,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         ib22.setImageResource(image[imageIndex[8]]);
 
     }
-
     //  交换数组指定角标上的数据
     private void swap(int rand1, int rand2) {
         int temp = imageIndex[rand1];
         imageIndex[rand1] = imageIndex[rand2];
         imageIndex[rand2] = temp;
     }
-
     /* 初始化控件*/
     private void initView() {
         backIv = findViewById(R.id.title_iv_back);
@@ -122,9 +113,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         timeTv = findViewById(R.id.pt_tv_time);
         restartBtn = findViewById(R.id.pt_btn_restart);
     }
-
-
-
 
     @Override
     public void onClick(View view) {

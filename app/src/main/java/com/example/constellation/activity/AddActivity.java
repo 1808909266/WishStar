@@ -3,6 +3,7 @@ package com.example.constellation.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,12 +24,13 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        initViews();
+        setListener();
+    }
+    private void initViews() {
         wishcontent = findViewById(R.id.wishcontent);
         toolbar = findViewById(R.id.toolbar);
         mWishDbOpenHelper = new WishDbOpenHelper(this);
-        setListener();
-
-
     }
 
     private void setListener() {
@@ -40,8 +42,8 @@ public class AddActivity extends AppCompatActivity {
         });
 
     }
-
     public void add(View view) {
+        String username=SharedPreferencesUtil.getString(this,"username","");
         String content = wishcontent.getText().toString();
         if (TextUtils.isEmpty(content)) {
             Toast.makeText(this, "标题不能为空！", Toast.LENGTH_SHORT).show();
@@ -49,15 +51,12 @@ public class AddActivity extends AppCompatActivity {
         }
         Wish wish =new Wish();
         wish.setWishcontent(content);
-        long row = mWishDbOpenHelper.insertData(wish);
+        long row = mWishDbOpenHelper.insertData(wish,username);
         if (row != -1) {
             ToastUtil.toastShort(this,"添加成功！");
             this.finish();
         }else {
             ToastUtil.toastShort(this,"添加失败！");
         }
-
-
-
     }
 }

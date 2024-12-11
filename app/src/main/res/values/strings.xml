@@ -7,9 +7,7 @@
     <string name="man">男生 ：</string>
     <string name="woman">女生 ：</string>
     <string name="parnter_info">分别选您的星座和对方的星座点击配对分析即可。</string>
-    <string name="parnter_btn_prize">每日抽奖</string>
     <string name="parnter_btn_analysls">开始配对分析</string>
-    <string name="title_activity_parnter_analysls">ParnterAnalyslsActivity</string>
     <string name="about_app">关于应用</string>
     <string name="function">功能介绍</string>
     <string name="change">修改密码</string>

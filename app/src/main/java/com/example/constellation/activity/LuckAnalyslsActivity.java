@@ -41,9 +41,12 @@ public class LuckAnalyslsActivity extends AppCompatActivity implements View.OnCl
         initView(name);
         mDatas = new ArrayList<>();
 //        获取网络请求
-        LoadDataAsyncTask task = new LoadDataAsyncTask(this, this, true);
-        task.execute(luckURL);
+        loadLuckData(luckURL);
 
+    }
+    private void loadLuckData(String url) {
+        LoadDataAsyncTask task = new LoadDataAsyncTask(this, this, true);
+        task.execute(url);
     }
 
     private void initView(String name) {

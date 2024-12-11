@@ -40,15 +40,15 @@ public class StarAnalyslsActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_star_analysls);
+        initIntent();
+        initView();
+        addDataToList();
+    }
+
+    private void initIntent() {
         Intent intent = getIntent();
 //        获取上一个界面传递过来的数据
         bean = (StarBean.StarinfoBean) intent.getSerializableExtra("star");
-
-        initView();
-        mDatas = new ArrayList<StarAnalyslsBean>(); // 初始化显示在ListView上的数据源
-        mAdapter = new AnalyslsBaseAdapter(this, mDatas);
-        analyslsLv.setAdapter(mAdapter);
-        addDataToList();
     }
 
     /* 加载ListView当中的数据源内容 */
@@ -96,6 +96,9 @@ public class StarAnalyslsActivity extends AppCompatActivity implements View.OnCl
         Bitmap bitmap = contentLogoImgMap.get(bean.getLogoname());
         iconIv.setImageBitmap(bitmap);
         footerTv.setText(bean.getInfo());
+        mDatas = new ArrayList<StarAnalyslsBean>(); // 初始化显示在ListView上的数据源
+        mAdapter = new AnalyslsBaseAdapter(this, mDatas);
+        analyslsLv.setAdapter(mAdapter);
     }
 
     @Override

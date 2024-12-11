@@ -29,22 +29,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         setContentView(R.layout.activity_main);
 //        初始化布局
         initView();
-
-
-//        加载星座相关数据的方法 /assets/xzcontent/xzcontent.json
-        StarBean infoBean = loadDate();
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("info",infoBean);
-
-//        创建碎片对象
-        starFrag = new StarFragment();
-        starFrag.setArguments(bundle);
-        parnterFrag = new ParnterFragment();
-        parnterFrag.setArguments(bundle);
-        luckFrag = new LuckFragment();
-        luckFrag.setArguments(bundle);
-        meFrag = new MeFragment();
-        meFrag.setArguments(bundle);
         addFragmentPage();
     }
 
@@ -81,6 +65,18 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private void initView() {
         mainRg = findViewById(R.id.main_rg);
         mainRg.setOnCheckedChangeListener(this);
+        //        加载星座相关数据的方法 /assets/xzcontent/xzcontent.json
+        StarBean infoBean = loadDate();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("info",infoBean);
+        starFrag = new StarFragment();
+        starFrag.setArguments(bundle);
+        parnterFrag = new ParnterFragment();
+        parnterFrag.setArguments(bundle);
+        luckFrag = new LuckFragment();
+        luckFrag.setArguments(bundle);
+        meFrag = new MeFragment();
+        meFrag.setArguments(bundle);
     }
 
     @Override

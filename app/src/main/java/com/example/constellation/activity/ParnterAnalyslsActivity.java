@@ -43,7 +43,10 @@ public class ParnterAnalyslsActivity extends AppCompatActivity implements LoadDa
         getLastData();
 //        获取网络路径地址
         String parnterURL = URLContent.getParnterURL(man_name, woman_name);
-//        加载网络数据
+        loadLuckData(parnterURL);
+    }
+    private void loadLuckData(String parnterURL) {
+        //        加载网络数据
 //        1.创造自定义的异步任务的对象
         LoadDataAsyncTask task = new LoadDataAsyncTask(this, this, true);
 //        2.执行异步任务

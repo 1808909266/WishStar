@@ -14,7 +14,7 @@ import java.util.List;
 public class WishDbOpenHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "wishSQLite.db";
     private static final String TABLE_NAME_WISH = "wish";
-    private static final String CREATE_TABLE_SQL = "create table " + TABLE_NAME_WISH + " (id integer primary key autoincrement, wishcontent text)";
+    private static final String CREATE_TABLE_SQL = "create table " + TABLE_NAME_WISH + " (id integer primary key autoincrement, wishcontent text, user_id text)";
     public WishDbOpenHelper(Context context) {
         super(context, DB_NAME, null, 1);}
 
@@ -28,23 +28,26 @@ public class WishDbOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    public long insertData(Wish wish) {
+    public long insertData(Wish wish,String userId) {
 
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
         values.put("wishcontent", wish.getWishcontent());
+        values.put("user_id", userId);
 
         return db.insert(TABLE_NAME_WISH, null, values);
     }
 
-    public List<Wish> queryAllFromDb() {
+    public List<Wish> queryAllFromDb(String userId) {
 
         SQLiteDatabase db = getWritableDatabase();
         List<Wish> wishList = new ArrayList<>();
+        String selection = "user_id = ?";
+        String[] selectionArgs = { userId };
 
-        Cursor cursor = db.query(TABLE_NAME_WISH, null, null, null, null, null, null);
+        Cursor cursor = db.query(TABLE_NAME_WISH, null, selection, selectionArgs, null, null, null);
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 String id = cursor.getString(cursor.getColumnIndexOrThrow("id"));

@@ -26,26 +26,23 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        initView();
 
+    }
 
+    private void initView() {
         splashImg = findViewById(R.id.img);
         lottieAnimationView = findViewById(R.id.lottie);
-
         splashImg.animate().translationY(-3000).setDuration(1000).setStartDelay(4000);
-
         lottieAnimationView.animate().translationY(2000).setDuration(1000).setStartDelay(4000);
-
         handler.postDelayed(new Runnable() {
-
             public void run() {
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
         }, SPLASH_LENGTH);
-
     }
-
 
 
 }

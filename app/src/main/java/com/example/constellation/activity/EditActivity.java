@@ -23,13 +23,16 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        wishcontent = findViewById(R.id.wishcontent);
-        toolbar = findViewById(R.id.toolbar);
+        initView();
         initData();
         setListener();
     }
+    private void initView() {
+        wishcontent = findViewById(R.id.wishcontent);
+        toolbar = findViewById(R.id.toolbar);
+    }
     private void setListener() {
-        findViewById(R.id.toolbar).setOnClickListener(new View.OnClickListener() {
+        toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -41,19 +44,13 @@ public class EditActivity extends AppCompatActivity {
         Intent intent = getIntent();
         wish = (Wish) intent.getSerializableExtra("wish");
         if (wish != null) {
-
             wishcontent.setText(wish.getWishcontent());
         }
         mWishDbOpenHelper = new WishDbOpenHelper(this);
     }
-
     public void save(View view) {
-
         String content = wishcontent.getText().toString();
-
-
         wish.setWishcontent(content);
-
         long rowId = mWishDbOpenHelper.updateData(wish);
         if (rowId != -1) {
             ToastUtil.toastShort(this, "修改成功！");
@@ -61,6 +58,5 @@ public class EditActivity extends AppCompatActivity {
         }else{
             ToastUtil.toastShort(this, "修改失败！");
         }
-
     }
 }

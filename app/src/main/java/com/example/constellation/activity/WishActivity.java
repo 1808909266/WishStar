@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,11 +27,11 @@ public class WishActivity extends AppCompatActivity {
     private WishAdapter mWishAdapter;
 
     private WishDbOpenHelper mWishDbOpenHelper;
+    private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish);
-        toolbar = findViewById(R.id.toolbar);
         initView();
         initData();
         initEvent();
@@ -48,12 +49,12 @@ public class WishActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        refreshDataFromDb();
+        refreshDataFromDb(userId);
 
     }
 
-    private void refreshDataFromDb() {
-        mWish = getDataFromDB();
+    private void refreshDataFromDb(String userId) {
+        mWish = getDataFromDB(userId);
         mWishAdapter.refreshData(mWish);
     }
 
@@ -82,12 +83,14 @@ public class WishActivity extends AppCompatActivity {
 
     }
 
-    private List<Wish> getDataFromDB() {
-       return mWishDbOpenHelper.queryAllFromDb();
+    private List<Wish> getDataFromDB(String userId) {
+       return mWishDbOpenHelper.queryAllFromDb(userId);
 
     }
 
     private void initView() {
+        userId=SharedPreferencesUtil.getString(this,"username","");
+        toolbar = findViewById(R.id.toolbar);
         mRecyclerView = findViewById(R.id.rlv);
     }
 
